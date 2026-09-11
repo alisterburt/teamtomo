@@ -45,7 +45,10 @@ def _objc() -> ctypes.CDLL:
     ``objc_msgSend.argtypes`` MUST be set on Apple Silicon -- without it the
     default (variadic) ABI is wrong and the call segfaults on entry.
     """
-    libobjc = ctypes.cdll.LoadLibrary(ctypes.util.find_library("objc"))
+    lib_path = ctypes.util.find_library("objc")
+    if lib_path is None:
+        raise OSError("libobjc not found -- Metal GPU interop requires macOS")
+    libobjc = ctypes.cdll.LoadLibrary(lib_path)
     libobjc.sel_registerName.restype = ctypes.c_void_p
     libobjc.sel_registerName.argtypes = [ctypes.c_char_p]
     libobjc.objc_msgSend.restype = ctypes.c_uint64
