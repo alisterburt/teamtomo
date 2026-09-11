@@ -20,6 +20,7 @@ dependencies = [
     "torch-subpixel-crop",
     "torch-fourier-slice",
     "torch-ctf",
+    "torch-scattering",
     "torch-fourier-filter",
     "torch-fourier-shell-correlation",
     "torch-cubic-spline-grids",
@@ -32,7 +33,11 @@ dependencies = [
     "torch-segment-fiducials-2d",
     "torch-tiltxcorr",
     "torch-local-resolution",
+    "torch-fit-in-map",
+    "torch-reconstruct-tomogram",
     "teamtomo-basemodel",
+    "torch-calculate-electrostatic-potential",
+    "torch-structure-manipulation",
 ]
 
 # Force uv to use workspace versions of packages (instead of PyPI versions)
@@ -50,6 +55,7 @@ torch-fourier-rescale = { workspace = true }
 torch-subpixel-crop = { workspace = true }
 torch-fourier-slice = { workspace = true }
 torch-ctf = { workspace = true }
+torch-scattering = { workspace = true }
 torch-fourier-filter = { workspace = true }
 torch-fourier-shell-correlation = { workspace = true }
 torch-cubic-spline-grids = { workspace = true }
@@ -62,7 +68,11 @@ torch-refine-tilt-axis-angle = { workspace = true }
 torch-segment-fiducials-2d = { workspace = true }
 torch-tiltxcorr = { workspace = true }
 torch-local-resolution = { workspace = true }
+torch-fit-in-map = { workspace = true }
+torch-reconstruct-tomogram = { workspace = true }
 teamtomo-basemodel = { workspace = true }
+torch-calculate-electrostatic-potential = { workspace = true }
+torch-structure-manipulation = { workspace = true }
 
 [tool.uv.workspace]
 members = [
@@ -108,6 +118,10 @@ dev = [
     "pre-commit",
     "rich",
     "ruff",
+]
+examples = [
+    "ipykernel",
+    "matplotlib",
 ]
 
 [tool.pytest.ini_options]
